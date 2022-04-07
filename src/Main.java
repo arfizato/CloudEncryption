@@ -1,4 +1,3 @@
-import com.formdev.flatlaf.FlatDarkLaf;
 
 import javax.swing.*;
 import java.awt.*;
@@ -7,7 +6,7 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.Random;
 
-public class EndyCrypt implements ActionListener {
+public class Main implements ActionListener {
     final static boolean shouldFill = true;
     final static boolean shouldWeightX = true;
     final static boolean RIGHT_TO_LEFT = false;
@@ -24,11 +23,8 @@ public class EndyCrypt implements ActionListener {
 
 
         pane.setLayout(new GridBagLayout());
-        GridBagConstraints c = new GridBagConstraints();/*
-        if (shouldFill) {
-            c.fill = GridBagConstraints.HORIZONTAL;
-        }*/
-            inputTxt = new JEditorPane();
+        GridBagConstraints c = new GridBagConstraints();
+        inputTxt = new JEditorPane();
         c.fill = GridBagConstraints.BOTH ;
         c.weightx = 1;
         c.weighty=4;
@@ -38,7 +34,7 @@ public class EndyCrypt implements ActionListener {
         inputTxt.setAlignmentY(1F);
         pane.add(inputTxt, c);
 
-         outputTxt = new JEditorPane();
+        outputTxt = new JEditorPane();
         c.weightx= 1;
         c.weighty=4;
         c.fill = GridBagConstraints.BOTH ;
@@ -65,8 +61,8 @@ public class EndyCrypt implements ActionListener {
         decryptBtn.addActionListener(this);
 
         JLabel invispanel = new JLabel("");
-        c.weightx= 0.5;
-        c.gridy=1;
+        c.weightx= 0.1;
+        c.gridy=0;
         c.gridx=1;
         pane.add(invispanel, c);
 
@@ -74,9 +70,9 @@ public class EndyCrypt implements ActionListener {
 
 
     private static void createAndShowGUI() throws IOException {
-        JFrame frame = new JFrame("cryptokholomology");
+        JFrame frame = new JFrame("cryptage w fazet");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        EndyCrypt ed= new EndyCrypt();
+        Main ed= new Main();
         ed.addComponentsToPane(frame.getContentPane());
 
         frame.pack();
@@ -86,11 +82,6 @@ public class EndyCrypt implements ActionListener {
 
     public static void main(String[] args) {
 
-        try {
-            UIManager.setLookAndFeel( new FlatDarkLaf() );
-        } catch( Exception ex ) {
-            System.err.println( "Failed to initialize LaF" );
-        }
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 try {
